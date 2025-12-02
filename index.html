@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1280" />
+    <title>Joke Poem — NOS‑stijl mock</title>
+    <meta
+      name="description"
+      content="A lighthearted joke poem layout inspired by nos.nl (placeholder content)."
+    />
+    <style>
+      :root {
+        --bg: #f5f6f8;
+        --text: #111;
+        --muted: #6b7280;
+        --line: #e5e7eb;
+        --brand-red: #e30613;
+        --brand-blue: #0a4da3;
+        --card: #ffffff;
+      }
+      /* Base */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--text);
+      }
+      body {
+        font:
+          16px/1.55 -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial,
+          "Noto Sans",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          sans-serif;
+      }
+      a {
+        color: var(--brand-blue);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Header */
+      .site-header {
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+      }
+      .wrap {
+        width: 1200px;
+        margin: 0 auto;
+        padding: 0 16px;
+        box-sizing: border-box;
+      }
+      .brandbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .brand .logo {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+      .brand .logo .n,
+      .brand .logo .s {
+        color: #888;
+        font-weight: 800;
+        font-size: 22px;
+      }
+      .brand .logo .o {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--brand-red);
+        color: #fff;
+        font-weight: 800;
+        font-size: 16px;
+        position: relative;
+        top: -1px;
+      }
+      .brand .tag {
+        font-size: 13px;
+        color: var(--muted);
+        border-left: 1px solid var(--line);
+        padding-left: 10px;
+        margin-left: 6px;
+      }
+
+      .search-fake {
+        font-size: 14px;
+        color: #9aa0a6;
+        border: 1px solid var(--line);
+        padding: 10px 12px;
+        border-radius: 6px;
+        background: #fafafa;
+      }
+
+      .navbar {
+        border-top: 1px solid var(--line);
+      }
+      .navbar .menu {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 12px 0;
+        font-weight: 600;
+      }
+      .navbar .menu li {
+        color: #374151;
+      }
+      .navbar .menu li.hot a {
+        color: var(--brand-red);
+      }
+
+      /* Layout */
+      .main {
+        display: grid;
+        grid-template-columns: 820px 1fr;
+        gap: 24px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+
+      /* Hero article */
+      .hero {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .hero .cover {
+        height: 220px;
+        border-bottom: 1px solid var(--line);
+        background: #000;
+        overflow: hidden;
+      }
+      .hero .cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center bottom;
+        display: block;
+      }
+      .hero .inner {
+        padding: 20px;
+      }
+      .eyebrow {
+        color: var(--brand-red);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-size: 12px;
+      }
+      .hero h1 {
+        margin: 8px 0 10px 0;
+        font-size: 38px;
+        line-height: 1.15;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 14px;
+      }
+      .prose {
+        font-size: 18px;
+        color: #222;
+      }
+      .prose p {
+        margin: 0 0 14px;
+      }
+
+      /* Poem grid */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 16px;
+      }
+      .card h3 {
+        margin: 0 0 8px;
+        font-size: 20px;
+      }
+      .stanza {
+        color: #222;
+      }
+      .stanza .line {
+        display: block;
+        padding: 2px 0;
+      }
+
+      /* Sidebar */
+      .sidebar .block {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        margin-bottom: 16px;
+      }
+      .sidebar .block h4 {
+        margin: 0;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        font-size: 16px;
+      }
+      .sidebar .block .content {
+        padding: 12px 16px;
+      }
+      .mostread {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .mostread li {
+        display: flex;
+        gap: 10px;
+        padding: 8px 0;
+        border-bottom: 1px dashed var(--line);
+      }
+      .mostread li:last-child {
+        border-bottom: none;
+      }
+      .mostread .num {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #eef2f7;
+        color: #334155;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 12px;
+      }
+
+      /* Footer */
+      .site-footer {
+        border-top: 1px solid var(--line);
+        padding: 24px 0;
+        color: #4b5563;
+        font-size: 14px;
+      }
+      .foot-cols {
+        display: flex;
+        gap: 40px;
+      }
+      .foot-cols .col {
+        flex: 1;
+      }
+      .foot-cols h5 {
+        margin: 0 0 10px;
+        font-size: 13px;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .foot-cols ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .foot-cols li {
+        padding: 6px 0;
+      }
+      /* Topline and header refinements */
+      .topline {
+        background: #f8fafc;
+        border-bottom: 1px solid var(--line);
+      }
+      .topline .topline-inner {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 32px;
+        font-size: 13px;
+        color: #475569;
+      }
+      .live-pill {
+        background: var(--brand-red);
+        color: #fff;
+        font-weight: 800;
+        border-radius: 999px;
+        padding: 2px 8px;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+      }
+      .bullet {
+        color: #94a3b8;
+      }
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .brand .logo {
+        gap: 6px;
+      }
+      .brand .logo .n,
+      .brand .logo .s {
+        color: #1f2937;
+        font-size: 24px;
+      }
+      .brand .logo .o {
+        width: 28px;
+        height: 28px;
+        box-shadow:
+          0 0 0 2px #fff,
+          0 0 0 3px var(--line);
+      }
+      .search-fake {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .navbar {
+        background: #fff;
+      }
+      .navbar .menu {
+        gap: 16px;
+      }
+      .navbar .menu li + li {
+        border-left: 1px solid var(--line);
+        padding-left: 16px;
+      }
+      .navbar .menu li a {
+        display: inline-block;
+        padding: 10px 0;
+        border-bottom: 3px solid transparent;
+      }
+      .navbar .menu li a:hover {
+        border-bottom-color: var(--brand-red);
+        text-decoration: none;
+      }
+      .navbar .menu li.hot a {
+        color: var(--text);
+        border-bottom-color: var(--brand-red);
+      }
+      /* Header rebuild for NOS-like */
+      .brandbar {
+        height: 86px;
+      }
+      .brand-left {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        white-space: nowrap;
+      }
+      .logo .n,
+      .logo .s {
+        color: #80888f;
+        font-weight: 900;
+        font-size: 30px;
+        line-height: 1;
+      }
+      .logo .o {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 8px solid #e52521;
+        background: transparent;
+        color: transparent;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .primary-nav {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+      }
+      .primary-nav .link {
+        font-size: 26px;
+        color: #111;
+        font-weight: 800;
+        position: relative;
+      }
+      .primary-nav .link.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -14px;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--brand-red);
+      }
+      .live-chip {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fde7ea;
+        color: var(--brand-red);
+        font-weight: 800;
+        padding: 10px 16px;
+        border-radius: 12px;
+      }
+      .live-chip .dot {
+        width: 10px;
+        height: 10px;
+        background: var(--brand-red);
+        border-radius: 50%;
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .action {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #111;
+      }
+      .btn-settings {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border: 2px solid var(--brand-red);
+        border-radius: 14px;
+        padding: 10px 14px;
+        background: #fff;
+      }
+      .subnav {
+        border-top: 1px solid var(--line);
+      }
+      .tabs {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 16px 0;
+      }
+      .tab {
+        flex: 0 0 auto;
+      }
+      .tab a {
+        display: inline-flex;
+        align-items: center;
+        color: #111;
+        font-size: 18px;
+        padding: 10px 12px;
+        border-radius: 20px;
+        white-space: nowrap;
+      }
+      .tab.active a {
+        background: #111;
+        color: #fff;
+        padding: 10px 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <div class="brandbar">
+          <div class="brand-left">
+            <a class="logo" href="#" aria-label="NOS‑stijl">
+              <span class="n">N</span><span class="o">O</span
+              ><span class="s">S</span>
+            </a>
+            <nav class="primary-nav" aria-label="Hoofdsecties">
+              <a class="link active" href="#">Nieuws</a>
+              <a class="link" href="#">Sport</a>
+              <a class="live-chip" href="#"><span class="dot"></span> Live</a>
+            </nav>
+          </div>
+          <div class="actions">
+            <a class="action search" href="#" aria-label="Zoeken">
+              <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="6"
+                  fill="none"
+                  stroke="#111"
+                  stroke-width="2"
+                />
+                <line
+                  x1="16"
+                  y1="16"
+                  x2="21"
+                  y2="21"
+                  stroke="#111"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="label">Zoeken</span>
+            </a>
+            <a class="btn-settings" href="#">
+              <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 8a4 4 0 100 8 4 4 0 000-8z"
+                  fill="none"
+                  stroke="#111"
+                  stroke-width="2"
+                />
+                <path
+                  d="M3 12h3M18 12h3M12 3v3M12 18v3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"
+                  stroke="#111"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span>Instellingen</span>
+            </a>
+            <a class="action menu" href="#">
+              <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                aria-hidden="true"
+              >
+                <line
+                  x1="4"
+                  y1="7"
+                  x2="20"
+                  y2="7"
+                  stroke="#111"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="4"
+                  y1="12"
+                  x2="20"
+                  y2="12"
+                  stroke="#111"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="4"
+                  y1="17"
+                  x2="20"
+                  y2="17"
+                  stroke="#111"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span class="label">Menu</span>
+            </a>
+          </div>
+        </div>
+        <nav class="subnav" aria-label="Sectie-tabs">
+          <ul class="tabs">
+            <li class="tab active"><a href="#">Voorpagina</a></li>
+            <li class="tab"><a href="#">Laatste nieuws</a></li>
+            <li class="tab"><a href="#">Video's</a></li>
+            <li class="tab"><a href="#">Binnenland</a></li>
+            <li class="tab"><a href="#">Buitenland</a></li>
+            <li class="tab"><a href="#">Regionaal nieuws</a></li>
+            <li class="tab"><a href="#">Politiek</a></li>
+            <li class="tab"><a href="#">Economie</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap main">
+      <section class="content">
+        <article class="hero">
+          <div class="cover">
+            <img
+              src="shurgard-flood.jpg"
+              alt="Opslaggebouw van Shurgard met water en rommel voor de ingang"
+            />
+          </div>
+          <div class="inner">
+            <div class="eyebrow">Ramp in bij opslag Leidsche Rijn</div>
+            <h1>Overstroming door onverwachte harde regen</h1>
+            <div class="meta">Door Sint | Vandaag 12:00</div>
+            <div class="prose">
+              <p>
+                De opslag in Leidsche Rijn is sinds gister helemaal nat. Alle
+                opslagruimtes lijken nu op een groot vies bad. De opslag ruimtes
+                hebben allemaal flinke schade. Voor sommige kasten zelfs tot de
+                bovenste lade.
+              </p>
+              <p>
+                Hoe heeft dit nu allemaal kunnen gebeuren? En waarom hangen er
+                overal poep en plas geuren?
+              </p>
+              <p>
+                Quisque rhoncus lacus sed lorem elementum, sit amet rutrum sem
+                ornare. Vivamus sed venenatis nisl. Aliquam erat volutpat. Sed a
+                magna ut orci dapibus viverra nec at lorem.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <aside class="sidebar" aria-label="Zijkolom">
+        <div class="block">
+          <h4>Meest gelezen</h4>
+          <div class="content">
+            <ol class="mostread">
+              <li>
+                <span class="num">1</span
+                ><a href="#">Lorem ipsum vero — kop in vijf woorden</a>
+              </li>
+              <li>
+                <span class="num">2</span
+                ><a href="#">Subkop vult, alinea lacht in stilte</a>
+              </li>
+              <li>
+                <span class="num">3</span
+                ><a href="#">Weerbericht: tempor mild, ventus variabilis</a>
+              </li>
+              <li>
+                <span class="num">4</span
+                ><a href="#">Liveblog: risus in cursus (update)</a>
+              </li>
+              <li>
+                <span class="num">5</span
+                ><a href="#">Analyse: metrum versus meteo — wat wint?</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="block">
+          <h4>Nieuwsbrief</h4>
+          <div class="content">
+            <p>
+              Ontvang wekelijks het beste ipsum in je inbox. Geen spam, enkel
+              woorden.
+            </p>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap foot-cols">
+        <div class="col">
+          <h5>Over dit project</h5>
+          <ul>
+            <li>Statische demo in NOS‑achtige stijl.</li>
+            <li>Alle tekst is placeholder/lorem.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Techniek</h5>
+          <ul>
+            <li>Enkel HTML + CSS (geen JS).</li>
+            <li>Desktop layout, geen responsive.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Gebruik</h5>
+          <ul>
+            <li>Serve lokaal met een simpele HTTP‑server.</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
